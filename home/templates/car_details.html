@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://chipsclassiccars.com/wp-content/uploads/2023/09/Chips-Logo-1.png">
+    <title>{{ car.brand }} {{ car.model }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 18px;
+        }
+
+        .additional-photos {
+            margin-top: 20px;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .contact-us {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .contact-heading {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contact-text {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <h2 class="card-title text-center mt-5">{{ car.brand }} {{ car.model }}</h2>
+    <div class="card">
+        <img src="{{ car.main_photo.url }}" class="card-img-top img-fluid" alt="Car Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
+            <p class="card-text">Price: ${{ car.price }}</p>
+            <p class="card-text">Year: {{ car.year }}</p>
+            <textarea class="card-text" style="height: 850px; width: 600px; overflow-y: auto;resize: none;border: none; overflow: hidden ;background-color: transparent; font-family: 'Arial'; line-height: 40px" readonly>{{ car.short_info }}</textarea>
+        </div>
+    </div>
+</div>
+
+    <div class="container contact-us">
+        <h3 class="contact-heading">Contact Us</h3>
+        <p class="contact-text">
+            If you have any questions about this classic car or would like to inquire about purchasing it, feel free to contact us. We're here to help!
+           <p> Phone number: +1 (530) 350-5596
+
+            <p>Address: 675 US-31, Whiteland, IN 46184
+        <p>E-mail: sales@chipsclassicscars.comexit
+
+        </p>
+    </div>
+
+    <div class="container additional-photos">
+        <h3 class="mt-4">Additional Photos</h3>
+        <div class="row">
+            {% for car_photo in car.carphoto_set.all %}
+                <div class="col-md-4">
+                    <img src="{{ car_photo.photo.url }}" class="img-fluid" alt="Additional Car Photo">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>
