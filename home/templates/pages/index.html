@@ -452,21 +452,29 @@
 .car-image {
   position: relative;
   overflow: hidden;
+  /* Set a specific aspect ratio (e.g., 16:9) for the container */
+
+  /* Set a maximum width to prevent images from exceeding the container */
+  max-width: 100%;
+    max-height: 254px;
 }
 
 .car-image img {
   width: 100%;
-  height: auto;
+  height: 254px;
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
   transition: transform 0.3s ease-in-out;
 }
 
 .car-details {
   padding: 15px;
+    height: 160px;
 }
 
 .car-title {
   font-size: 1.25rem;
   margin: 0;
+    height: 70px;
 }
 
 .car-info {
@@ -669,7 +677,7 @@
                 <div class="contact-item">
                     <i class="bi bi-telephone"></i>
                     <span class="contact-label">Phone number:</span>
-                    <span class="contact-text">+1 (530) 350-5596</span>
+                    <span class="contact-text">+1 (754) 345-3020 </span>
                 </div>
                 <div class="contact-item">
                     <i class="bi bi-geo-alt"></i>
@@ -794,7 +802,7 @@
 IN 46184</p>
       </div>
       <div class="col-lg-2 col-md-4 col-6">
-        <p>+1 (530) 350-5596</p>
+        <p>+1 (754) 345-3020 </p>
       </div>
 
       <div class="col-lg-2 col-md-4 col-6 me-md-auto mx-md-0 mx-auto">
