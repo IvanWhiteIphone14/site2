@@ -31,7 +31,7 @@ if not SECRET_KEY:
 DEBUG = 'True'
 
 # Docker HOST
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
+ALLOWED_HOSTS = ['*']
 
 # Add here your deployment HOSTS
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://localhost:5085']

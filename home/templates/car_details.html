@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://chipsclassiccars.com/wp-content/uploads/2023/09/Chips-Logo-1.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="https://i.ibb.co/V9xPkvr/download.png">
     <title>{{ car.brand }} {{ car.model }}</title>
     <style>
         body {
@@ -59,6 +61,11 @@
     </style>
 </head>
 <body>
+
+<a href="/" class="cls320cdi">
+    <img src="https://i.ibb.co/V9xPkvr/download.png" class="imglogo">
+</a>
+
    <div class="container">
     <h2 class="card-title text-center mt-5">{{ car.brand }} {{ car.model }}</h2>
     <div class="card">
@@ -67,19 +74,61 @@
             <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
             <p class="card-text">Price: ${{ car.price }}</p>
             <p class="card-text">Year: {{ car.year }}</p>
-            <textarea class="card-text" style="height: 850px; width: 600px; overflow-y: auto;resize: none;border: none; overflow: hidden ;background-color: transparent; font-family: 'Arial'; line-height: 40px" readonly>{{ car.short_info }}</textarea>
+            <textarea class="card-text textavoi" readonly>{{ car.short_info }}</textarea>
         </div>
     </div>
 </div>
+<style>
+    .textavoi{
+        height: 850px;
+        width: 600px;
+        overflow-y: auto;
+        resize: none;
+        border: none;
+        overflow: hidden ;
+        background-color: transparent; font-family: 'Arial'; line-height: 40px
 
+    }
+
+    .imglogo{
+        width: 30%; z-index: 9999;
+    }
+
+    .cls320cdi{
+        position: absolute; top: 0; left: 0;
+    }
+
+    .aidon{
+        padding-top: 10px; margin-left: 20px; z-index: 10000;
+                    margin: 0px;
+    }
+    @media (max-width: 768px) {
+    /* Styles for screens up to 768px wide (typical for phones) */
+        .imglogo{
+            width: 30%;
+            position: relative;
+            z-index: 1;
+        }
+        .aidon{
+            margin: 0px;
+        }
+        .cls320cdi{
+            position: relative;
+        }
+        .textavoi{
+            width: 100%;
+            height: 1300px;
+        }
+}
+</style>
     <div class="container contact-us">
         <h3 class="contact-heading">Contact Us</h3>
         <p class="contact-text">
             If you have any questions about this classic car or would like to inquire about purchasing it, feel free to contact us. We're here to help!
-           <p> Phone number: +1 (530) 350-5596
+           <p> Phone number: +1 (754) 345-3020
 
             <p>Address: 675 US-31, Whiteland, IN 46184
-        <p>E-mail: sales@chipsclassicscars.comexit
+        <p>E-mail: sales@masterpiecevintage.com
 
         </p>
     </div>
