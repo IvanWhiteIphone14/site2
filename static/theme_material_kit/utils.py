@@ -35,7 +35,6 @@ try:
 except ImportError:
     from ordereddict import OrderedDict  # Python 2.6
 
-
 default_apps_icon = {
     'auth': 'fa fa-users'
 }
@@ -466,3 +465,29 @@ def user_is_authenticated(user):
         return user.is_authenticated
     else:
         return user.is_authenticated()
+
+
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+
+
+def send_email(sender_email, sender_password, recipient_email, subject, body):
+    smtp_server = 'SMTP.titan.email'
+    smtp_port = 587  # Use 465 for SSL or 587 for STARTTLS
+
+    # Create the message
+    message = MIMEText(body, 'plain', 'utf-8')
+    message['From'] = sender_email
+    message['To'] = recipient_email
+    message['Subject'] = Header(subject, 'utf-8')
+
+    try:
+        smtp_obj = smtplib.SMTP(smtp_server, smtp_port)
+        smtp_obj.starttls()  # Use this line if port is 587 for STARTTLS
+        smtp_obj.login(sender_email, sender_password)
+        smtp_obj.sendmail(sender_email, recipient_email, message.as_string())
+        smtp_obj.quit()
+        print('Email sent successfully.')
+    except smtplib.SMTPException as e:
+        print('Error sending email:', str(e))

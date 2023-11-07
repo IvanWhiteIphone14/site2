@@ -9,7 +9,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls, name='admin'),
     path('car_details/<int:car_id>/', views.car_details, name='car_details'),
-    path('', views.feedbackurl, name='feedback')
+    path('', views.feedbackurl, name='feedback'),
+    path('main/', views.copyindex, name='main'),
+    path('submit_form/', views.submit_form, name='submit_form')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
