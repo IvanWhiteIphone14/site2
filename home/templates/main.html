@@ -8,6 +8,7 @@
 {% block content %}
 
 </div></div></div>
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
     <link rel="icon" href="https://i.ibb.co/V9xPkvr/download.png" type="image/x-icon"/>
  <style>
         /* Add your custom styles here */
@@ -861,5 +862,45 @@ IN 46184</p>
     };
   }
 </script>
+<style>
+    .nav {
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+        position: absolute; /* Position the navbar absolutely on top of the image */
+        width: 100%;
+    }
+
+    .nav ul {
+        padding-top: 15px;
+        margin-bottom: 0;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .nav li {
+        list-style: none;
+        color: white; /* Text color for the navbar links */
+    }
+
+    .nav img {
+        width: 105px;
+    }
+
+    .image-overlay {
+        position: relative; /* Position the container relatively for absolute positioning of the navbar */
+    }
+
+    .overlay-content {
+        padding-top: 160px;
+        text-align: center;
+    }
+
+    /* Add more CSS styles for your links, such as changing their color, hover effects, etc. */
+    .nav a {
+        text-decoration: none;
+        color: white; /* Text color for the navbar links */
+        padding: 10px;
+    }
+</style>
 
 {% endblock javascripts %}

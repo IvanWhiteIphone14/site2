@@ -3,236 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Feedback</title>
-    <!-- Add these lines to your <head> section -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="icon" type="image/png" href="https://i.ibb.co/V9xPkvr/downloacdcdd.png">
-
-    <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-image: url("https://www.cccollision.net/wp-content/uploads/2020/03/3-Things-to-Know-About-Collision-Repair-for-Classic-Cars.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-
-    .container {
-        background-color: #8B4513; /* Brown background color */
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        max-width: 600px;
-        opacity: 0.95;
-        margin-top: 50px; /* Adjusted margin-top */
-        padding-top: 4200px;
-    }
-
-    h1 {
-        color: #CD853F; /* Brownish color */
-        font-size: 36px;
-        font-family: 'Montserrat', sans-serif;
-        margin-bottom: 20px;
-    }
-
-    p {
-        color: #8B4513; /* Brown text color */
-    }
-
-    .feedback-card {
-        margin: 20px 0;
-        border: 2px solid #CD853F;
-        border-radius: 10px;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        font-family: 'Montserrat', sans-serif;
-    }
-
-    .feedback-photo {
-        max-width: 300px;
-        border-radius: 10%;
-        margin: 10px auto;
-    }
-
-    .feedback-rating {
-        font-size: 24px;
-        color: #CD853F;
-    }
-
-    .custom-btn {
-        color: #8B4513;
-        background-color: #CD853F;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 18px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    .custom-btn:hover {
-        background-color: #8B4513;
-        color: #CD853F;
-        border-color: #CD853F;
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            margin-top: 150px; /* Adjusted margin-top for smaller screens */
-        }
-    }
-</style>
-
+    <title>Masterpiece Vintage Classic Car Market</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+<style>
+    /* Your existing styles */
+
+/* Improved styles for professional design */
+.hero {
+    background-image: url('hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.featured-cars {
+    margin: 20px 0;
+}
+
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.car {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.car:hover {
+    transform: scale(1.05);
+}
+
+/* Additional animations can be added using CSS transitions and keyframes in separate stylesheets. */
+
+</style>
 <body>
-    <div class="container">
-        <h1>Customer Feedback</h1>
-        <div class="feedback-card">
-            <img class="feedback-photo" src="https://pastandpresentmotorcars.com/website/dealer/shipping2/1" alt="User 1">
-            <p>James Smith's feedback:</p>
-            <p class="feedback-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-            <p>I recently bought a classic car from Classic Car Market, and I couldn't be more satisfied. Here's why:
+    <header>
+        <nav>
+            <div class="logo">Masterpiece Vintage</div>
+            <div class="menu-toggle">&#9776;</div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/cars">Cars</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to the Masterpiece Vintage Classic Car Market</h1>
+            <p>Discover a collection of timeless classics.</p>
+        </section>
 
-Customer Service: The team was incredibly responsive and helpful, answering all my questions with patience and professionalism.
+        <section class="featured-cars">
+            <h2>Featured Cars</h2>
+            <div class="car-list">
+                {% for car in cars %}
+                    <div class="car">
+                        <h3>{{ car.brand }} {{ car.model }}</h3>
+                        <p>{{ car.year }} - {{ car.type }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
 
-Selection: MasterpieceVintage boasts an impressive lineup of classic cars, making it easy to find the perfect match.
+        <section class="about-us">
+            <h2>About Us</h2>
+            <p>We are passionate about classic cars and have been in the business for years. Our collection features some of the most iconic cars in history.</p>
+        </section>
+    </main>
 
-Transparency: Their transparency regarding the car's history and condition played a vital role in my decision.
-
-Purchase Process: The process was straightforward, with multiple secure payment options available.
-
-Delivery: The car arrived in pristine condition, reflecting their attention to detail and care in transportation.
-
-Overall, Classic Car Market made my classic car dream come true, and I highly recommend them to fellow enthusiasts.</p>
-        </div>
-        <div class="feedback-card">
-            <img class="feedback-photo" src="https://pastandpresentmotorcars.com/website/dealer/shipping2/2" alt="User 2">
-            <img class="feedback-photo" src="https://pastandpresentmotorcars.com/website/dealer/shipping2/3" alt="User 2">
-            <p>John Johnson's feedback:</p>
-            <p class="feedback-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-            <p>I recently purchased a classic car from Classic Car Market and had a fantastic experience. The customer service was top-notch, the selection was impressive, and the delivery was flawless. I couldn't be happier with my purchase.</p>
-        </div>
-        <div class="feedback-card">
-            <img class="feedback-photo" src="https://pastandpresentmotorcars.com/website/dealer/shipping3/1" alt="User 3">
-            <img class="feedback-photo" src="https://pastandpresentmotorcars.com/website/dealer/shipping3/2" alt="User 3">
-            <p>Charles Clark's feedback:</p>
-            <p class="feedback-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-            <p>Classic Car Market made my classic car dream a reality. Their wide selection, transparent listings, and professional customer service set them apart. The car arrived in perfect condition, and I couldn't be happier.</p>
-        </div>
-        <div class="feedback-card">
-            <img class="feedback-photo" src="https://pastandpresentmotorcars.com/website/dealer/shipping2/0" alt="User 3">
-            <p>Jeremy Xander's feedback:</p>
-            <p class="feedback-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-            <p>Classic Car Market delivered a top-notch classic car buying experience. Their excellent customer service, extensive selection, and seamless delivery process made acquiring my dream car a breeze.</p>
-        </div>
-        <div class="feedback-card">
-            <img class="feedback-photo" src="https://pastandpresentmotorcars.com/website/dealer/shipping4/1" alt="User 3">
-            <p>James Schmidt's feedback:</p>
-            <p class="feedback-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-            <p>I stumbled upon Classic Car Market while searching for a vintage gem. The entire experience, from choosing the car to its delivery, was smooth and enjoyable. They provided the perfect blend of selection, service, and satisfaction.
-
-
-
-
-</p>
-        </div>
-        <div class="feedback-card">
-            <img class="feedback-photo" src="https://pastandpresentmotorcars.com/website/dealer/shipping3/3" alt="User 3">
-            <p>Aaron Stuart's feedback:</p>
-            <p class="feedback-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-            <p>Classic Car Market is the ultimate destination for classic car enthusiasts. From their exceptional customer service to their vast selection and transparent transactions, they offer a first-class experience. I recently acquired a classic car through them, and it was a delightful journey from start to finish. Highly recommended!</p>
-        </div>
-
-        <div class="feedback-card">
-    <h2>Leave a Feedback</h2>
-    <form class="p-3" id="feedback-form" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="rating">Rating</label>
-            <select class="form-control" id="rating" name="rating" required>
-                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-                <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
-                <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
-                <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734;</option>
-                <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="feedback">Your Feedback</label>
-            <textarea class="form-control" id="feedback" name="feedback" rows="4" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="image">Upload an Image</label>
-            <input type="file" class="form-control-file" id="image" name="image">
-        </div>
-        <button type="button" class="btn btn-primary btn-lg mx-auto d-block custom-btn" id="submit-btn">Submit</button>
-    </form>
-</div>
-        <style>
-        /* Add this CSS for the dialog box */
-        .dialog-box {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            font-size: 30px;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .dialog-box.visible {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Other existing styles in your CSS */
-    </style>
-        <div class="dialog-box" id="dialog-box" style="font-size: 30px">
-        Your review will appear on the website, as soon as possible
-    </div>
- <script>
-        // JavaScript to handle the dialog box
-        document.getElementById("submit-btn").addEventListener("click", function() {
-            var name = document.getElementById("name").value;
-            var rating = document.getElementById("rating").value;
-            var feedback = document.getElementById("feedback").value;
-
-            if (name && rating && feedback) {
-                // All fields are filled
-                var dialogBox = document.getElementById("dialog-box");
-                dialogBox.classList.add("visible");
-                document.getElementById("feedback-form").reset();
-
-                // Automatically hide the dialog after a delay (e.g., 3 seconds)
-                setTimeout(function() {
-                    dialogBox.classList.remove("visible");
-                    location.reload();
-                }, 2000);
-            } else {
-                // Not all fields are filled
-            }
-        });
-    </script>
-
-    </div>
+    <footer>
+        <p>&copy; 2023 Masterpiece Vintage Classic Car Market</p>
+    </footer>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
